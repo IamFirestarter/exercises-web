@@ -43,14 +43,25 @@ body {
 */	color: #728E03;
 }
 
+/* change design properties of input*/
+
 input, select, textarea{
     color: #0F111E;
     background-color: #728E03;
    	font-family: 'Inconsolata';
    	border-style: none;
-   	font-size: 14px;
+   	font-size: 18px;
    	font-style: oblique;
    	text-align: center;
+}
+
+/* remove all basic form elements border */
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 .error{
