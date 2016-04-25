@@ -11,8 +11,8 @@
         <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <script src="stuff.js">
+        </script>
     </head>
     <body>
         <div id="container1">
@@ -26,18 +26,6 @@
                         document.getElementById('verify').click()"    
 />
                     <button onclick="myJSfunction()" id="verify">Verify signature</button>
-                    <script type="text/javascript">
-                        function myJSfunction(){
-                            var x = document.getElementById('input1').value;
-                            if (x == "ripley"){
-                                document.getElementById("reset").innerHTML = "<p> > Welcome commander Ripley. It has been a long time. </p><p>> My records show your last entry was on June 6th, 2122.</p><p>> How can I be of assistance?</p>"
-                                // var reply = "> Welcome commander Ripley"
-                            } else {
-                                document.getElementById("reset").innerHTML = "<p class='error'> > Please try again. </p>"
-                            }
-                            return 0;
-                        }
-                    </script>
                     </div>
                 </div>
             </div>
