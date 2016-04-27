@@ -7,6 +7,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="solarized-dark.min.css" rel="stylesheet">
         <script type="text/javascript" src="./abDetector.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script>
+$(document).ready(function(){
+    $("#ab-message").click(function(){
+        $(this).hide();
+    });
+});
+</script>
+
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style>
     /* override html from solarized
@@ -44,7 +53,7 @@
     </head>
 
     <body>
-        <div id="ab-message" style="display: none">Hi there. It looks like you're using an ad-blocker. I use analytics to deliver better content and gain insights. Would you please be kind enough to disable it? <strong>THANKS!</strong></div>
+        <div id="ab-message" style="display: none">Hi there. It looks like you're using an ad-blocker. I use analytics to deliver better content and gain insights. Would you please be kind enough to add this page to your whitelist? <strong>Thanks!</strong><br>--> By the way, clicking on this messge will hide it :)</div>
         <div class="centered">
         <h2 align="center">List of exercises</h2>
         <ul>
