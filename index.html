@@ -21,7 +21,8 @@
             if(typeof fuckAdBlock === 'undefined') {
                 adBlockDetected();
             } else {
-                fuckAdBlock.setOption({ debug: true });
+                fuckAdBlock.setOption({ debug: false, checkOnLoad: true
+ });
                 fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
             }
             
