@@ -6,16 +6,39 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="solarized-dark.min.css" rel="stylesheet">
-        <script type="text/javascript" src="./abDetector.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+        <script src="./node_modules/fuckadblock/fuckadblock.js"></script>
         <script>
-$(document).ready(function(){
-    $("#ab-message").click(function(){
-        $(this).hide();
-    });
-});
-</script>
-
+            function adBlockDetected() {
+                $('#fuck-adb-enabled').show();
+                $('#fuck-adb-not-enabled').hide();
+            }
+            function adBlockNotDetected() {
+                $('#fuck-adb-enabled').hide();
+                $('#fuck-adb-not-enabled').show();
+            }
+            
+            if(typeof fuckAdBlock === 'undefined') {
+                adBlockDetected();
+            } else {
+                fuckAdBlock.setOption({ debug: true });
+                fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+            }
+            
+            function checkAgain() {
+                $('#fuck-adb-enabled').hide();
+                $('#fuck-adb-not-enabled').hide();
+                // setTimeout 300ms for the recheck is visible when you click on the button
+                setTimeout(function() {
+                    if(typeof fuckAdBlock === 'undefined') {
+                        adBlockDetected();
+                    } else {
+                        fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+                        fuckAdBlock.check();
+                    }
+                }, 300);
+            }
+        </script>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <style>
     /* override html from solarized
@@ -30,11 +53,11 @@ $(document).ready(function(){
 
     }
 
-        #ab-message {
+        #blocker-message {
         text-align: center;
         max-width: 100%;
-        background-color: #859B00;
-        color:#0E2A37;
+        background-color: #000;
+        color:#fff;
     }
         .centered {
         text-align: center;
@@ -53,7 +76,9 @@ $(document).ready(function(){
     </head>
 
     <body>
-        <div id="ab-message" style="display: none">Hi there. It looks like you're using an ad-blocker. I use analytics to deliver better content and gain insights. Would you please be kind enough to add this page to your whitelist? <strong>Thanks!</strong><br>--> By the way, clicking on this messge will hide it :)</div>
+        <div id="fuck-adb-enabled">enabled</div>
+        <div id="fuck-adb-not-enabled">not enabled</div>
+
         <div class="centered">
         <h2 align="center">List of exercises</h2>
         <ul>

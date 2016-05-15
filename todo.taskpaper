@@ -1,2 +1,4 @@
-main index:
-	- create responsive (mobile first) index for displaying exercise list
+today:
+- modify test code for detecting adblocker
+- change title/description for 57 exercises content page so it's more descriptive
+-  
