@@ -10,12 +10,10 @@
         <script src="./node_modules/fuckadblock/fuckadblock.js"></script>
         <script>
             function adBlockDetected() {
-                $('#fuck-adb-enabled').show();
-                $('#fuck-adb-not-enabled').hide();
+                $('#fuck-adb-enabled').text('enabled');
             }
             function adBlockNotDetected() {
-                $('#fuck-adb-enabled').hide();
-                $('#fuck-adb-not-enabled').show();
+                $('#fuck-adb-enabled').text('not enabled');
             }
             
             if(typeof fuckAdBlock === 'undefined') {
@@ -24,20 +22,6 @@
                 fuckAdBlock.setOption({ debug: false, checkOnLoad: true
  });
                 fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
-            }
-            
-            function checkAgain() {
-                $('#fuck-adb-enabled').hide();
-                $('#fuck-adb-not-enabled').hide();
-                // setTimeout 300ms for the recheck is visible when you click on the button
-                setTimeout(function() {
-                    if(typeof fuckAdBlock === 'undefined') {
-                        adBlockDetected();
-                    } else {
-                        fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
-                        fuckAdBlock.check();
-                    }
-                }, 300);
             }
         </script>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -51,15 +35,6 @@
     	margin:0 auto;
         max-width: 800px;
         padding: 0 0;
-
-    }
-
-    #fuck-adb-enabled {
-        display: block;
-    }
-    
-    #fuck-adb-not-enabled{
-        display: none;
 
     }
 
@@ -80,9 +55,7 @@
     </head>
 
     <body>
-        <div id="fuck-adb-enabled">enabled</div>
-        <div id="fuck-adb-not-enabled">not enabled</div>
-
+        <div id="fuck-adb-enabled"></div>
         <div class="centered">
         <h2 align="center">List of exercises</h2>
         <ul>
