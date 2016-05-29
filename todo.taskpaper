@@ -1,4 +1,4 @@
 today:
-- modify test code for detecting adblocker
+- fix code for detecting adblocker
 - change title/description for 57 exercises content page so it's more descriptive
--  
+- add a more visual presentation
